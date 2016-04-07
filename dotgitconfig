@@ -1,0 +1,9 @@
+[user]
+	name = Damien L-G
+	email = qdi@ornl.gov
+[core]
+	editor = vi
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
