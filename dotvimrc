@@ -161,3 +161,7 @@ map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " Use custom file listing command with Ctrlp
 let g:ctrlp_user_command = 'find %s -type f'
+
+" Persistent undo
+set undofile   " Maintain undo history between sessions
+set undodir=~/.vim/undodir
