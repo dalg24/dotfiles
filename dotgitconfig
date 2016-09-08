@@ -3,7 +3,16 @@
 	email = qdi@ornl.gov
 [core]
 	editor = vi
+    pager = diff-highlight | less -r
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[alias]
+    diff-highlight = !git diff --color | diff-highlight | less -r
+[diff]
+    algorithm = minimal
+    compactionHeuristic = true
+    renames = true
+[push]
+	default = nothing
