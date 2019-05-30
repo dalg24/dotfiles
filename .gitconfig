@@ -1,9 +1,10 @@
 [user]
 	name = Damien L-G
-	email = qdi@ornl.gov
+	email = dalg24@gmail.com
+	signingkey = 0x7A0994F834C86684
 [core]
 	editor = vi
-    pager = diff-highlight | less -r
+    pager = diff-highlight | less
 [filter "lfs"]
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
