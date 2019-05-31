@@ -4,19 +4,19 @@
 	signingkey = 0x7A0994F834C86684
 [core]
 	editor = vi
-    pager = diff-highlight | less
+	pager = diff-highlight | less
 [filter "lfs"]
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [alias]
-    diff-highlight = !git diff --color | diff-highlight | less -r
-    commit-auto-message = !git commit -m "\"$(curl -s http://whatthecommit.com/index.txt)\""
+	diff-highlight = !git diff --color | diff-highlight | less -r
+	commit-auto-message = !git commit -m "\"$(curl -s http://whatthecommit.com/index.txt)\""
 	log1 = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [diff]
-    algorithm = minimal
-    compactionHeuristic = true
-    renames = true
+	algorithm = minimal
+	compactionHeuristic = true
+	renames = true
 [push]
 	default = nothing
