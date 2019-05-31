@@ -6,9 +6,10 @@
 	editor = vi
     pager = diff-highlight | less
 [filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
+	process = git-lfs filter-process
 	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
 [alias]
     diff-highlight = !git diff --color | diff-highlight | less -r
     commit-auto-message = !git commit -m "\"$(curl -s http://whatthecommit.com/index.txt)\""
