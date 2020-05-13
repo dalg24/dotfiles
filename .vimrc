@@ -1,32 +1,43 @@
+set encoding=utf-8
+
+syntax on
+set backspace=2
+
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
 
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
+Plugin 'VundleVim/Vundle.vim'
 
 " Keep Plugin commands between vundle#begin/end.
-" plugin on GitHub repo
+
 Plugin 'Valloric/YouCompleteMe'
 "Plugin 'jeaye/color_coded'
-Plugin 'rdnetto/YCM-Generator'
-Plugin 'vim-scripts/matchit.zip'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/nerdcommenter'
+Plugin 'rhysd/vim-clang-format'
 Plugin 'tpope/vim-fugitive'
-Plugin 'kien/ctrlp.vim'
-Plugin 'bling/vim-airline'
+Plugin 'tpope/vim-rhubarb'
+Plugin 'scrooloose/nerdtree'
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'majutsushi/tagbar'
-Plugin 'Chiel92/vim-autoformat'
-Plugin 'docker/docker' , {'rtp': '/contrib/syntax/vim'}
+"Plugin 'kien/ctrlp.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'bogado/file-line'
+Plugin 'martinda/Jenkinsfile-vim-syntax'
+"Plugin 'octol/vim-cpp-enhanced-highlight'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
 filetype plugin indent on    " required
-
+" To ignore plugin indent changes, instead use:
+"filetype plugin on
+"
 " Brief help
 " :PluginList       - lists configured plugins
 " :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
@@ -36,133 +47,18 @@ filetype plugin indent on    " required
 " see :h vundle for more details or wiki for FAQ
 " Put your non-Plugin stuff after this line
 
-" Vim5 and later versions support syntax highlighting. Uncommenting the
-" following enables syntax highlighting by default.
-if has("syntax")
-  syntax on
-endif
-
-colorscheme default
-
-" Uncomment the following to have Vim jump to the last position when
-" reopening a file
-if has("autocmd")
-  au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
-endif
-
-" Uncomment the following to have Vim load indentation rules and plugins
-" according to the detected filetype.
-if has("autocmd")
-  filetype plugin indent off
-endif
-
-" The following are commented out as they cause vim to behave a lot
-" differently from regular Vi. They are highly recommended though.
-set showcmd		  " Show (partial) command in status line.
-set showmatch		" Show matching brackets.
-set ignorecase	" Do case insensitive matching
-set smartcase		" Do smart case matching
-set incsearch		" Incremental search
-set autowrite		" Automatically save before commands like :next and :make
-set hidden      " Hide buffers when they are abandoned
-set mouse=a		  " Enable mouse usage (all modes)
-"set smartindent		" Do smart indent in C++ file 
-
-" Tabstops are 4 spaces
-set tabstop=4
-set shiftwidth=2
-
-" Make command line two lines high
-set ch=2
-
-" set visual bell
-set visualbell
-
-" Allow backspacing over indent, eol, and the start of an insert
-set backspace=2
-
-" Tell VIM to always put a status line in, even if there is only one window
-set laststatus=2
-
-" Show the current mode
-set showmode
-
-" Show the line in the file
-set ruler
-
-" Hide the mouse pointer while typing
-set mousehide
-
-" Keep some stuff in the history
-set history=100
-
-" When the pafe starts to scroll, keep the cursor 8lines from the top and 8
-" lines from the bottom
-set scrolloff=8
-
-" Allow the cursor to "invalide" places
-set virtualedit=all
-
-" Make the command-line completion better
-set wildmenu
-
-" When completing by tag, show the whole tag, not just the function name
-set showfulltag
-
-" Set the textwidth to be 78 chars
-set textwidth=80
-
 " Turn tabs into spaces
 set expandtab
 
-" Add ignorance of whitespace to diff
-set diffopt+=iwhite
+" Highlight trailining whitespaces
+highlight ExtraWhitespace ctermbg=red guibg=red
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
 
-" Enable search highlighting
-set hlsearch
+" Configure clang-format
+let g:clang_format#detect_style_file = 1
+let g:clang_format#auto_format = 1
+let g:clang_format#command = "/opt/local/bin/clang-format"
 
-" Fix constant spelling mistakes can be used to make some shortcuts
-iab hte      the
-iab Hte      The
-iab teh      the
-iab Teh      The
-iab taht     that
-iab Taht     That
-iab alos     also
-iab Alos     Also
-iab aslo     also
-iab Aslo     Also
-iab becuase  because
-iab Becuase  Because
-iab bianry   binary
-iab bianries binaries
-iab Bianries Binaries
-iab charcter character
-iab Charcter Character
-iab exmaple  example
-iab Exmaple  Example
-iab Exmaples Examples
-iab exmaples examples
-iab lenght   length
-iab shoudl   should
-iab Shoudl   Should
-iab #i       #include
-
-" Lets get crontab editing working
-if $VIM_CRONTAB == 'true'
-  set nobackup
-  set nowritebackup
-endif
-
-" Nerd tree stuff open toggle, and close with tree window still open
-map <C-t> :NERDTreeToggle<CR>
-" Tagbar
-map <C-l> :TagbarToggle<CR>
-map <F12> :!ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
-
-" Use custom file listing command with Ctrlp
-let g:ctrlp_user_command = 'find %s -type f'
-
-" Persistent undo
-set undofile   " Maintain undo history between sessions
-set undodir=~/.vim/undodir
+" Configure ctags
+let g:tagbar_ctags_bin = "/opt/local/bin/ctags"
+let g:tagbar_ctags_options = ["/Users/qdi/Projects/isocpp/gcc/libstdc++-v3/myopts.cfn"]
