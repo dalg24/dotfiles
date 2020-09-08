@@ -22,6 +22,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
+Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
@@ -62,3 +63,16 @@ let g:clang_format#command = "/opt/local/bin/clang-format"
 " Configure ctags
 let g:tagbar_ctags_bin = "/opt/local/bin/ctags"
 let g:tagbar_ctags_options = ["/Users/qdi/Projects/isocpp/gcc/libstdc++-v3/myopts.cfn"]
+
+" Smarter tab line
+let g:airline#extensions#tabline#enabled = 1
+
+if has('gui_running')
+  set background=light
+else
+  set background=dark
+endif
+let g:solarized_termcolors=256
+colorscheme solarized
+" Toggle background
+call togglebg#map("<F5>")
