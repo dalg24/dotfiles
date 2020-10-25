@@ -35,6 +35,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'bogado/file-line'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
 "Plugin 'octol/vim-cpp-enhanced-highlight'
+Plugin 'embear/vim-localvimrc'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -88,3 +89,5 @@ colorscheme solarized
 " Toggle background
 call togglebg#map("<F5>")
 
+" Localvimrc
+let g:localvimrc_ask = 0
