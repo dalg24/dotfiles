@@ -18,6 +18,7 @@ Plugin 'VundleVim/Vundle.vim'
 " Keep Plugin commands between vundle#begin/end.
 
 Plugin 'Valloric/YouCompleteMe'
+Plugin 'Valloric/ListToggle'
 "Plugin 'jeaye/color_coded'
 Plugin 'rhysd/vim-clang-format'
 Plugin 'tpope/vim-fugitive'
