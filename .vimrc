@@ -52,9 +52,13 @@ filetype plugin indent on    " required
 " Turn tabs into spaces
 set expandtab
 
-" Highlight trailining whitespaces
+" Highlight unwanted spaces
 highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
 autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
 
 " Configure clang-format
 let g:clang_format#detect_style_file = 1
@@ -78,10 +82,3 @@ colorscheme solarized
 " Toggle background
 call togglebg#map("<F5>")
 
-" Highlight unwanted spaces
-highlight ExtraWhitespace ctermbg=red guibg=red
-match ExtraWhitespace /\s\+$/
-autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
-autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
-autocmd InsertLeave * match ExtraWhitespace /\s\+$/
-autocmd BufWinLeave * call clearmatches()
