@@ -97,3 +97,9 @@ call togglebg#map("<F5>")
 
 " Localvimrc
 let g:localvimrc_ask = 0
+
+" Temporary swap and backup files
+set backup
+set backupdir^=$HOME/.vim/tmp//
+set directory^=$HOME/.vim/tmp//
+set undodir^=$HOME/.vim/tmp//
