@@ -3,7 +3,7 @@
 	email = dalg24@gmail.com
 	signingkey = 0x7A0994F834C86684
 [core]
-	editor = vi
+	editor = vim
 	excludesfile = ~/.gitignore
 [filter "lfs"]
 	process = git-lfs filter-process
