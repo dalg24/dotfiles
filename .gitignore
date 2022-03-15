@@ -1,0 +1,14 @@
+*.DS_Store
+
+compile_commands.json
+.clangd/
+
+.lvimrc
+
+.env
+
+.idea
+
+cmake-build-*
+
+CMakeUserPresets.json
