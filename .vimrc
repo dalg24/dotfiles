@@ -25,11 +25,15 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-dispatch'
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-repeat'
+Plugin 'tpope/vim-eunuch'
 Plugin 'altercation/vim-colors-solarized'
 Plugin 'scrooloose/nerdtree'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
+Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'majutsushi/tagbar'
 "Plugin 'kien/ctrlp.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
@@ -79,6 +83,7 @@ let g:tagbar_ctags_options = ["/Users/qdi/Projects/isocpp/gcc/libstdc++-v3/myopt
 
 " Smarter tab line
 let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 if has('gui_running')
   set background=light
