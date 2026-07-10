@@ -35,12 +35,14 @@ Plugin 'vim-airline/vim-airline-themes'
 Plugin 'edkolev/tmuxline.vim'
 Plugin 'tmux-plugins/vim-tmux-focus-events'
 Plugin 'majutsushi/tagbar'
-"Plugin 'kien/ctrlp.vim'
-Plugin 'ctrlpvim/ctrlp.vim'
+""Plugin 'kien/ctrlp.vim'
+"Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'bogado/file-line'
 Plugin 'martinda/Jenkinsfile-vim-syntax'
 "Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'embear/vim-localvimrc'
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required
@@ -71,6 +73,11 @@ autocmd BufWinLeave * call clearmatches()
 let g:lt_location_list_toggle_map = '<leader>l'
 let g:lt_quickfix_list_toggle_map = '<leader>q'
 let g:lt_height = 10
+
+" Let clangd fully control code completion
+let g:ycm_clangd_uses_ycmd_caching = 0
+" Use installed clangd, not YCM-bundled clangd which doesn't get updates.
+let g:ycm_clangd_binary_path = exepath("clangd")
 
 " Configure clang-format
 let g:clang_format#detect_style_file = 1
@@ -103,3 +110,9 @@ set backup
 set backupdir^=$HOME/.vim/tmp//
 set directory^=$HOME/.vim/tmp//
 set undodir^=$HOME/.vim/tmp//
+
+" Ctrl-p searches using fzf
+nnoremap <C-p> :GFiles<Cr>
+nnoremap <C-b> :Buffers<Cr>
+nnoremap <C-g> :Ag<Cr>
+let g:fzf_history_dir = '~/.local/share/fzf-history'

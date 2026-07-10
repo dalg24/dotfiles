@@ -1,7 +1,7 @@
 *.DS_Store
 
 compile_commands.json
-.clangd/
+.cache
 
 .lvimrc
 
@@ -10,5 +10,6 @@ compile_commands.json
 .idea
 
 cmake-build-*
+cmake-install-*
 
 CMakeUserPresets.json

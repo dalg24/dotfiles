@@ -1,7 +1,8 @@
 [user]
 	name = Damien L-G
 	email = dalg24@gmail.com
-	signingkey = 0x7A0994F834C86684
+        #signingkey = 0x7A0994F834C86684
+	signingkey = 0x067309A139D9E57C
 [core]
 	editor = vim
 	excludesfile = ~/.gitignore
@@ -11,7 +12,7 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 [alias]
-	commit-auto-message = !git commit -m "\"$(curl -s http://whatthecommit.com/index.txt)\""
+	commit-auto-message = !git commit -m "\"$(curl -Ls http://whatthecommit.com/index.txt)\""
 	log1 = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
 [diff]
 	algorithm = minimal
