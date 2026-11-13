@@ -6,49 +6,36 @@ set backspace=2
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-"call vundle#begin('~/some/path/here')
+call plug#begin()
 
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'Valloric/ListToggle'
+"Plug 'jeaye/color_coded'
+Plug 'rhysd/vim-clang-format'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-unimpaired'
+Plug 'tpope/vim-dispatch'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-eunuch'
+Plug 'altercation/vim-colors-solarized'
+Plug 'scrooloose/nerdtree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'edkolev/tmuxline.vim'
+Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'majutsushi/tagbar'
+""Plug 'kien/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
+Plug 'bogado/file-line'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+"Plug 'octol/vim-cpp-enhanced-highlight'
+Plug 'embear/vim-localvimrc'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
-" Keep Plugin commands between vundle#begin/end.
-
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'Valloric/ListToggle'
-"Plugin 'jeaye/color_coded'
-Plugin 'rhysd/vim-clang-format'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tpope/vim-rhubarb'
-Plugin 'tpope/vim-unimpaired'
-Plugin 'tpope/vim-dispatch'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-repeat'
-Plugin 'tpope/vim-eunuch'
-Plugin 'altercation/vim-colors-solarized'
-Plugin 'scrooloose/nerdtree'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'edkolev/tmuxline.vim'
-Plugin 'tmux-plugins/vim-tmux-focus-events'
-Plugin 'majutsushi/tagbar'
-""Plugin 'kien/ctrlp.vim'
-"Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'bogado/file-line'
-Plugin 'martinda/Jenkinsfile-vim-syntax'
-"Plugin 'octol/vim-cpp-enhanced-highlight'
-Plugin 'embear/vim-localvimrc'
-Plugin 'junegunn/fzf'
-Plugin 'junegunn/fzf.vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
-" To ignore plugin indent changes, instead use:
-"filetype plugin on
+call plug#end()
 "
 " Brief help
 " :PluginList       - lists configured plugins
